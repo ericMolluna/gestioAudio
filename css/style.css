@@ -1,0 +1,109 @@
+.fonsPlayer {
+    position: relative;
+    width: 400px;
+    height: 250px;
+    background: radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%);
+    overflow: hidden;
+}
+
+.ocean { 
+    height: 1%;
+    width: 100%;
+    position: absolute;
+    bottom:0;
+    left:0;
+    background: #015871;
+}
+  
+.wave {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
+    position: absolute;
+    top: -198px;
+    width: 6400px;
+    height: 198px;
+    transform: translate3d(0, 0, 0);
+}
+
+.wave.playing {
+    animation: wave 4s cubic-bezier( 0.40, 0.45, 0.63, 0.45) infinite;
+}
+  
+.wave:nth-of-type(2) {
+    top: -175px;
+    opacity: 1;
+}
+  
+.wave:nth-of-type(2).playing {
+    animation: wave 4s cubic-bezier( 0.40, 0.45, 0.63, 0.45) -.125s infinite, swell 7s ease -1.25s infinite;
+}
+  
+@keyframes wave {
+    0% {
+      margin-left: 0;
+    }
+    100% {
+      margin-left: -1600px;
+    }
+}
+  
+@keyframes swell {
+    0%, 100% {
+      transform: translate3d(0,-25px,0);
+    }
+    50% {
+      transform: translate3d(0,5px,0);
+    }
+}
+
+
+ button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            padding: 0;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+            margin-top: 6px;
+        }
+
+
+        .controlButtons {
+            display: flex;
+            align-items: center;
+        }
+
+        .volume-container {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        /* Control de volum */
+        #volume-control {
+            display: none;
+            margin-left: 10px;
+            width: 100px;
+        }
+
+        .play-expand {
+            animation: playExpand 0.3s ease-out;
+        }
+
+        @keyframes playExpand {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
